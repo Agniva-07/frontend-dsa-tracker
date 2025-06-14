@@ -97,7 +97,8 @@ async function login(event) {
   showLoading()
 
   try {
-    const response = await fetch(`${API_BASE}/login`, {
+  const response = await fetch(`${API_BASE}/api/login`, {
+
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -133,7 +134,7 @@ async function register(event) {
   showLoading()
 
   try {
-    const response = await fetch(`${API_BASE}/register`, {
+    const response = await fetch(`${API_BASE}/api/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -200,7 +201,7 @@ async function loadDashboard() {
   const token = localStorage.getItem("token")
 
   try {
-    const response = await fetch(`${API_BASE}/dashboard`, {
+    const response = await fetch(`${API_BASE}/api/dashboard`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -266,7 +267,7 @@ async function addProblem(event) {
   showLoading()
 
   try {
-    const response = await fetch(`${API_BASE}/problems`, {
+    const response = await fetch(`${API_BASE}/api/problems`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -302,7 +303,7 @@ async function loadLeaderboard() {
   showLoading()
 
   try {
-    const response = await fetch(`${API_BASE}/leaderboard`)
+    const response = await fetch(`${API_BASE}/api/leaderboard`)
 
     if (response.ok) {
       const users = await response.json()
